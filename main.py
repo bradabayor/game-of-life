@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """ Generates a perpetual game of life. """
 
+import time
 from random import randrange
 
 HEIGHT = 20
@@ -130,15 +131,7 @@ def get_surrounds(y, x):
 board = random_state(HEIGHT, WIDTH)
 render(board)
 
-board = next_board(board)
-render(board)
-board = next_board(board)
-render(board)
-board = next_board(board)
-render(board)
-board = next_board(board)
-render(board)
-board = next_board(board)
-render(board)
-board = next_board(board)
-render(board)
+while True:
+    board = next_board(board)
+    render(board)
+    time.sleep(0.2)
