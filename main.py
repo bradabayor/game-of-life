@@ -3,8 +3,8 @@
 
 from random import randrange
 
-HEIGHT = 10
-WIDTH = 10
+HEIGHT = 20
+WIDTH = 40
 
 def random_state(height, width):
     """random_state generates a board of size height x width, with a random
@@ -25,6 +25,35 @@ def random_state(height, width):
         board_list.append(line_list)
     return board_list
 
-board = random_state(HEIGHT, WIDTH)
+def render(board):
+    """render returns the game board output to the terminal.
 
-print(board)
+    e.g (10 x 10):
+    ------------
+    |##   #####|
+    |###  ##   |
+    |#    ## ##|
+    |#### #  # |
+    |## #   # #|
+    |###       |
+    |     ##  #|
+    | ### #   #|
+    |#  #  ## #|
+    |# #    # #|
+    ------------
+
+    Args:
+        board (list): two-dimensional list of the current game borad state.
+    """
+    width = len(board[0])
+    print('-' * (width + 2))
+    for y in board:
+        print('|', end='')
+        for x in y:
+            print(' ', end='') if x == 0 else print('#', end='')
+        print('|')
+    print('-' * (width + 2))
+
+
+board = random_state(HEIGHT, WIDTH)
+render(board)
